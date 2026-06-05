@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术参数 - PCT-100 化工控制实训装置</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI','Microsoft YaHei',sans-serif; background: #f0f2f5; color: #333; line-height:1.8; }
+  nav { background: linear-gradient(135deg,#0d2137,#1a3a5c); padding: 0 40px; display:flex; align-items:center; justify-content:space-between; height:64px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+  nav .logo { color:#fff; font-size:20px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  nav .logo .icon { width:36px; height:36px; background: #27ae60; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  nav ul { list-style:none; display:flex; gap:8px; }
+  nav ul li a { color:#a8c8e8; text-decoration:none; padding:8px 18px; border-radius:6px; transition:all .3s; font-size:15px; }
+  nav ul li a:hover, nav ul li a.active { color:#fff; background:rgba(255,255,255,.12); }
+  .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
+  .page-banner { background: linear-gradient(135deg,#0d2137,#8e44ad); color:#fff; text-align:center; padding:50px 20px; border-radius:0 0 24px 24px; margin-bottom:40px; }
+  .page-banner h1 { font-size:32px; margin-bottom:8px; }
+  .page-banner p { opacity:.85; font-size:15px; }
+  .card { background:#fff; border-radius:14px; padding:32px; margin-bottom:28px; box-shadow:0 2px 16px rgba(0,0,0,.06); }
+  .card h2 { color:#1a3a5c; font-size:22px; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid #8e44ad; display:flex; align-items:center; gap:10px; }
+  .card h2 .icon-t { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; background:#f5eef8; }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+  th, td { padding:10px 14px; text-align:left; border-bottom:1px solid #e8e8e8; }
+  th { background:#f5eef8; color:#6c3483; font-weight:600; width:30%; }
+  tr:hover td { background:#fafbfc; }
+  .spec-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
+  .highlight { background: linear-gradient(135deg,#8e44ad,#6c3483); color:#fff; padding:24px; border-radius:14px; text-align:center; }
+  .highlight .big { font-size:42px; font-weight:700; }
+  .highlight .label { font-size:14px; opacity:.8; margin-top:4px; }
+  footer { background:#0d2137; color:#a8c8e8; text-align:center; padding:30px; font-size:13px; margin-top:60px; }
+  @media(max-width:768px){ nav{padding:0 16px;} nav ul li a{padding:6px 10px;font-size:13px;} .spec-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><div class="icon">⚗</div>PCT-100</div>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="manual.html">产品说明书</a></li>
+    <li><a href="guide.html">操作指南</a></li>
+    <li><a href="specs.html" class="active">技术参数</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <h1>📊 技术参数</h1>
+  <p>PCT-100 Series · 详细规格</p>
+</div>
+
+<div class="container">
+
+  <!-- 总览 -->
+  <div class="spec-grid" style="margin-bottom:28px;">
+    <div class="highlight">
+      <div class="big">160MHz</div><div class="label">主频</div>
+    </div>
+    <div class="highlight">
+      <div class="big">2.4GHz</div><div class="label">WiFi 频段</div>
+    </div>
+    <div class="highlight">
+      <div class="big">128×64</div><div class="label">OLED 分辨率</div>
+    </div>
+  </div>
+
+  <!-- 装置示意图 -->
+  <div class="card">
+    <h2><span class="icon-t">📐</span>装置外观示意图</h2>
+    <div style="text-align:center;padding:20px 0;">
+      <svg viewBox="0 0 500 200" width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="20" width="420" height="160" rx="16" fill="#e8e8e8" stroke="#bbb" stroke-width="2"/>
+        <rect x="55" y="35" width="160" height="130" rx="8" fill="#1a1a2e"/>
+        <text x="135" y="85" text-anchor="middle" fill="#27ae60" font-size="11" font-weight="bold">OLED 128x64</text>
+        <text x="135" y="105" text-anchor="middle" fill="#888" font-size="10">实时数据显示</text>
+        <circle cx="135" cy="140" r="16" fill="#e74c3c" opacity=".8"/>
+        <text x="135" y="144" text-anchor="middle" fill="#fff" font-size="8">RGB</text>
+
+        <rect x="235" y="35" width="100" height="55" rx="8" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+        <text x="285" y="60" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">DS18B20</text>
+        <text x="285" y="76" text-anchor="middle" fill="#666" font-size="8">温度</text>
+
+        <rect x="235" y="100" width="100" height="55" rx="8" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+        <text x="285" y="125" text-anchor="middle" fill="#333" font-size="9" font-weight="bold">光照 ADC</text>
+        <text x="285" y="141" text-anchor="middle" fill="#666" font-size="8">光照传感器</text>
+
+        <rect x="350" y="35" width="95" height="55" rx="8" fill="#fdf2e9" stroke="#e67e22" stroke-width="2"/>
+        <text x="397" y="58" text-anchor="middle" fill="#b9770e" font-size="9" font-weight="bold">继电器1</text>
+        <text x="397" y="76" text-anchor="middle" fill="#666" font-size="8">灯</text>
+
+        <rect x="350" y="100" width="95" height="55" rx="8" fill="#eaf7ee" stroke="#27ae60" stroke-width="2"/>
+        <text x="397" y="123" text-anchor="middle" fill="#1e8449" font-size="9" font-weight="bold">继电器2</text>
+        <text x="397" y="141" text-anchor="middle" fill="#666" font-size="8">风扇</text>
+
+        <rect x="15" y="80" width="22" height="40" rx="5" fill="#1a3a5c"/>
+        <text x="26" y="98" text-anchor="middle" fill="#fff" font-size="7">KEY1</text>
+        <rect x="15" y="130" width="22" height="35" rx="5" fill="#1a3a5c"/>
+        <text x="26" y="150" text-anchor="middle" fill="#fff" font-size="7">KEY2</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 主控 -->
+  <div class="card">
+    <h2><span class="icon-t">💻</span>主控参数</h2>
+    <table>
+      <tr><th>处理器</th><td>ESP32-C3 (RISC-V 32-bit)</td></tr>
+      <tr><th>主频</th><td>160 MHz</td></tr>
+      <tr><th>Flash</th><td>4 MB</td></tr>
+      <tr><th>SRAM</th><td>400 KB</td></tr>
+      <tr><th>WiFi</th><td>802.11 b/g/n (2.4 GHz), 内置 PCB 天线</td></tr>
+      <tr><th>蓝牙</th><td>BLE 5.0（本装置未使用）</td></tr>
+      <tr><th>GPIO</th><td>22 个可用引脚（本装置使用 8 个）</td></tr>
+    </table>
+  </div>
+
+  <!-- 传感器 -->
+  <div class="card">
+    <h2><span class="icon-t">🌡</span>传感器参数</h2>
+    <table>
+      <tr><th>温度传感器型号</th><td>DS18B20 数字温度传感器</td></tr>
+      <tr><th>温度测量范围</th><td>-55℃ ~ +125℃</td></tr>
+      <tr><th>温度精度</th><td>±0.5℃ (-10℃ ~ +85℃)</td></tr>
+      <tr><th>分辨率</th><td>9~12 位可调 (默认 12 位)</td></tr>
+      <tr><th>通信协议</th><td>OneWire 单总线</td></tr>
+      <tr><th>光照传感器</th><td>模拟量 ADC 采集</td></tr>
+      <tr><th>ADC 分辨率</th><td>12 位 (0~4095)</td></tr>
+      <tr><th>光照值换算</th><td>lux = (4095 - ADC)² / 30000</td></tr>
+    </table>
+  </div>
+
+  <!-- 电气 -->
+  <div class="card">
+    <h2><span class="icon-t">⚡</span>电气参数</h2>
+    <table>
+      <tr><th>输入电压</th><td>5V DC (USB Type-C 供电)</td></tr>
+      <tr><th>工作电流</th><td>典型 150mA (不含负载)</td></tr>
+      <tr><th>继电器类型</th><td>2 路 USB 开关控制</td></tr>
+      <tr><th>继电器引脚</th><td>GPIO6 (USB1/灯), GPIO7 (USB2/风扇)</td></tr>
+      <tr><th>RGB LED</th><td>WS2812 单总线全彩 (GPIO0)</td></tr>
+      <tr><th>显示</th><td>SH1106 OLED 128×64 (I²C SDA=GPIO5, SCL=GPIO4)</td></tr>
+      <tr><th>按键</th><td>2 路 (KEY1=GPIO20, KEY2=GPIO21)，支持外部中断</td></tr>
+    </table>
+  </div>
+
+  <!-- 通信 -->
+  <div class="card">
+    <h2><span class="icon-t">📡</span>通信参数</h2>
+    <table>
+      <tr><th>WiFi 协议</th><td>802.11 b/g/n, STA 模式</td></tr>
+      <tr><th>WiFi 安全</th><td>WPA/WPA2/WPA3</td></tr>
+      <tr><th>MQTT 版本</th><td>3.1.1 (protocolVersion: 4)</td></tr>
+      <tr><th>MQTT QoS</th><td>QoS 0 (至多一次)</td></tr>
+      <tr><th>数据上报周期</th><td>每 5 秒上报一次状态</td></tr>
+      <tr><th>串口波特率</th><td>115200 bps</td></tr>
+      <tr><th>配网方式</th><td>串口交互式配网 / Flash 自动连接</td></tr>
+    </table>
+  </div>
+
+  <!-- 软件 -->
+  <div class="card">
+    <h2><span class="icon-t">🖥</span>软件参数</h2>
+    <table>
+      <tr><th>开发框架</th><td>Arduino (ESP32 Arduino Core)</td></tr>
+      <tr><th>编程语言</th><td>C++</td></tr>
+      <tr><th>Flash 存储</th><td>Preferences (NVS)，存储 WiFi/MQTT 配置</td></tr>
+      <tr><th>主要依赖库</th><td>OneWire, DallasTemperature, U8g2, PubSubClient, ArduinoJson, Adafruit NeoPixel</td></tr>
+      <tr><th>OTA 升级</th><td>暂不支持 (后续版本规划)</td></tr>
+      <tr><th>固件版本</th><td>V2.0</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <p>PCT-100 化工控制实训装置 · 技术参数</p>
+  <p style="margin-top:6px;">Copyright &copy; 2025 PCT-100 Series. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

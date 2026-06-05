@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作指南 - PCT-100 化工控制实训装置</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI','Microsoft YaHei',sans-serif; background: #f0f2f5; color: #333; line-height:1.8; }
+  nav { background: linear-gradient(135deg,#0d2137,#1a3a5c); padding: 0 40px; display:flex; align-items:center; justify-content:space-between; height:64px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+  nav .logo { color:#fff; font-size:20px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  nav .logo .icon { width:36px; height:36px; background: #27ae60; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  nav ul { list-style:none; display:flex; gap:8px; }
+  nav ul li a { color:#a8c8e8; text-decoration:none; padding:8px 18px; border-radius:6px; transition:all .3s; font-size:15px; }
+  nav ul li a:hover, nav ul li a.active { color:#fff; background:rgba(255,255,255,.12); }
+  .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
+  .page-banner { background: linear-gradient(135deg,#1a5276,#e67e22); color:#fff; text-align:center; padding:50px 20px; border-radius:0 0 24px 24px; margin-bottom:40px; }
+  .page-banner h1 { font-size:32px; margin-bottom:8px; }
+  .page-banner p { opacity:.85; font-size:15px; }
+  .card { background:#fff; border-radius:14px; padding:32px; margin-bottom:28px; box-shadow:0 2px 16px rgba(0,0,0,.06); }
+  .card h2 { color:#1a3a5c; font-size:22px; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid #e67e22; display:flex; align-items:center; gap:10px; }
+  .card h2 .step { background:#e67e22; color:#fff; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+  code { background:#2c3e50; color:#27ae60; padding:3px 8px; border-radius:4px; font-family:'Consolas','Courier New',monospace; font-size:13px; }
+  pre { background:#2c3e50; color:#ecf0f1; padding:20px; border-radius:10px; overflow-x:auto; font-size:13px; line-height:1.6; margin:14px 0; }
+  .cmd-example { background:#f0f8f4; border-left:4px solid #27ae60; padding:12px 18px; border-radius:0 8px 8px 0; margin:10px 0; font-family:Consolas,monospace; font-size:14px; }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+  th, td { padding:10px 14px; text-align:left; border-bottom:1px solid #e8e8e8; }
+  th { background:#fdf2e9; color:#1a3a5c; font-weight:600; }
+  tr:hover td { background:#fafbfc; }
+  .status-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+  .status-card { padding:20px; border-radius:12px; text-align:center; }
+  .dot { display:inline-block; width:14px; height:14px; border-radius:50%; margin-right:6px; }
+  .dot-red { background:#e74c3c; box-shadow:0 0 8px #e74c3c; }
+  .dot-green { background:#27ae60; box-shadow:0 0 8px #27ae60; }
+  footer { background:#0d2137; color:#a8c8e8; text-align:center; padding:30px; font-size:13px; margin-top:60px; }
+  @media(max-width:768px){ nav{padding:0 16px;} nav ul li a{padding:6px 10px;font-size:13px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><div class="icon">⚗</div>PCT-100</div>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="manual.html">产品说明书</a></li>
+    <li><a href="guide.html" class="active">操作指南</a></li>
+    <li><a href="specs.html">技术参数</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <h1>🔧 操作指南</h1>
+  <p>快速上手 · WiFi 配网 · MQTT 配置 · 命令参考</p>
+</div>
+
+<div class="container">
+
+  <!-- 快速开始 -->
+  <div class="card">
+    <h2><span class="step">1</span>快速开始</h2>
+    <p>设备上电后执行以下步骤：</p>
+    <ol style="margin:12px 0 0 20px;">
+      <li>RGB 灯开机动画：白光快闪 3 次 → 彩虹 7 色轮播</li>
+      <li>OLED 显示引导信息 "请打开串口监视器配置 WiFi 网络"</li>
+      <li>若 Flash 中有保存的 WiFi 凭据 → 自动连接（红灯常亮表示等待）</li>
+      <li>若无保存凭据或自动连接失败 → 进入串口配网流程</li>
+      <li>WiFi 连接成功 → MQTT 自动连接 → RGB 绿灯呼吸</li>
+    </ol>
+  </div>
+
+  <!-- WiFi 配网 -->
+  <div class="card">
+    <h2><span class="step">2</span>WiFi 配网</h2>
+    <p>打开串口监视器（115200 波特率），系统会自动扫描附近 WiFi 网络：</p>
+    <pre>
+发现 5 个网络:
+  [ 1]  TP-LINK_Home         RSSI: -45 dBm ( 85%)  加密
+  [ 2]  CMCC-Free            RSSI: -72 dBm ( 30%)  开放
+  ...
+
+请输入网络序号 (0=跳过, 1 ~ 5): 1
+已选择网络: TP-LINK_Home
+请输入密码: ********</pre>
+    <p>连接失败后可选择：<strong>R</strong> 重新输密码、<strong>S</strong> 重新扫描、<strong>Q</strong> 跳过 WiFi。</p>
+    <p style="margin-top:10px;">连接成功后凭据自动保存到 Flash，下次上电自动连接。</p>
+  </div>
+
+  <!-- 按键操作 -->
+  <div class="card">
+    <h2><span class="step">3</span>按键操作</h2>
+    <table>
+      <tr><th>按键</th><th>操作</th><th>功能</th></tr>
+      <tr><td><strong>KEY1</strong>（总闸）</td><td>按下 / 释放</td><td>按下=开机运行，释放=全部复位关机</td></tr>
+      <tr><td><strong>KEY2</strong>（模式）</td><td>短按</td><td>手动模式下循环切换：全关→风扇→灯→全开</td></tr>
+      <tr><td><strong>KEY2</strong>（模式）</td><td>长按 0.5s</td><td>切换自动/手动模式</td></tr>
+    </table>
+  </div>
+
+  <!-- RGB 状态灯 -->
+  <div class="card">
+    <h2><span class="step">4</span>RGB 状态灯说明</h2>
+    <div class="status-grid">
+      <div class="status-card" style="background:#fdedec;">
+        <strong>严重警报</strong><p style="font-size:13px;color:#888;">灯ON + 风扇ON<br>红绿蓝快闪 (100ms)</p>
+      </div>
+      <div class="status-card" style="background:#fef9e7;">
+        <strong>光照越界</strong><p style="font-size:13px;color:#888;">仅灯ON<br>红绿蓝各300ms</p>
+      </div>
+      <div class="status-card" style="background:#eaf7ee;">
+        <strong>温度越界</strong><p style="font-size:13px;color:#888;">仅风扇ON<br>红绿蓝各500ms</p>
+      </div>
+      <div class="status-card" style="background:#eaf0f7;">
+        <strong>MQTT未连接</strong><p style="font-size:13px;color:#888;">红→绿→蓝渐变</p>
+      </div>
+      <div class="status-card" style="background:#f5eef8;">
+        <strong>WiFi未连接</strong><p style="font-size:13px;color:#888;">红绿交替闪烁</p>
+      </div>
+      <div class="status-card" style="background:#e8f8f5;">
+        <strong>一切正常</strong><p style="font-size:13px;color:#888;">慢速彩虹渐变</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 串口命令 -->
+  <div class="card">
+    <h2><span class="step">5</span>串口命令参考</h2>
+    <h3>WiFi 命令</h3>
+    <div class="cmd-example">wifi          → 重新扫描选网配网</div>
+    <div class="cmd-example">forget        → 清除 Flash WiFi 凭据，自动进入配网</div>
+
+    <h3>MQTT 命令</h3>
+    <div class="cmd-example">mqtt          → 查看当前 MQTT 配置</div>
+    <div class="cmd-example">mqtt host 192.168.1.100  → 设置服务器 IP</div>
+    <div class="cmd-example">mqtt port 1883           → 设置端口</div>
+    <div class="cmd-example">mqtt id PCT_100_XXX      → 设置设备 ID</div>
+    <div class="cmd-example">mqtt test   → 测试当前参数能否连通（不保存）</div>
+    <div class="cmd-example">mqtt save   → 保存到 Flash 并重连</div>
+    <div class="cmd-example">mqtt clear  → 清除 Flash MQTT 配置</div>
+    <div class="cmd-example">mqtt stop   → 手动断开 MQTT（不再自动重连）</div>
+    <div class="cmd-example">mqtt start  → 恢复自动重连</div>
+
+    <h3>系统命令</h3>
+    <div class="cmd-example">status        → 显示系统状态（温度/光照/继电器/WiFi）</div>
+    <div class="cmd-example">help          → 显示命令帮助</div>
+  </div>
+
+  <!-- OLED -->
+  <div class="card">
+    <h2><span class="step">6</span>OLED 显示说明</h2>
+
+    <div style="display:flex;justify-content:center;margin-bottom:24px;">
+      <svg viewBox="0 0 260 160" width="260" height="160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="250" height="150" rx="6" fill="#1a1a2e"/>
+        <rect x="12" y="12" width="236" height="136" rx="2" fill="#0a0a1a"/>
+        <text x="130" y="27" text-anchor="middle" fill="#27ae60" font-size="10" font-family="monospace">模式:自动 总闸:ON</text>
+        <text x="130" y="44" text-anchor="middle" fill="#f39c12" font-size="10" font-family="monospace">WiFi:OK  MQTT:OK</text>
+        <text x="130" y="62" text-anchor="middle" fill="#3498db" font-size="10" font-family="monospace">光照: 680/320 lx</text>
+        <text x="130" y="80" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="monospace">温度: 25.3/32.0 C</text>
+        <text x="130" y="98" text-anchor="middle" fill="#f39c12" font-size="10" font-family="monospace">灯:开  风扇:关</text>
+        <rect x="25" y="112" width="16" height="16" rx="3" fill="#27ae60" opacity=".4"/>
+        <rect x="46" y="112" width="16" height="16" rx="3" fill="#e74c3c" opacity=".4"/>
+        <rect x="67" y="112" width="16" height="16" rx="3" fill="#3498db" opacity=".4"/>
+      </svg>
+    </div>
+
+    <table>
+      <tr><th>行</th><th>显示内容</th><th>说明</th></tr>
+      <tr><td>第1行</td><td>模式: 自动/手动  总闸: ON/OFF</td><td>系统运行状态</td></tr>
+      <tr><td>第2行</td><td>WiFi:OK/NO  MQTT:OK/NO</td><td>网络连接状态</td></tr>
+      <tr><td>第3行</td><td>光照: XXX/XXX lx</td><td>当前值 / 阈值</td></tr>
+      <tr><td>第4行</td><td>温度: XX.X/XX.X ℃</td><td>当前值 / 阈值</td></tr>
+      <tr><td>第5行</td><td>灯: 开/关  风扇: 开/关</td><td>继电器状态</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <p>PCT-100 化工控制实训装置 · 操作指南</p>
+  <p style="margin-top:6px;">Copyright &copy; 2025 PCT-100 Series. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

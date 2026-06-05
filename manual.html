@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品说明书 - PCT-100 化工控制实训装置</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI','Microsoft YaHei',sans-serif; background: #f0f2f5; color: #333; line-height:1.8; }
+  nav { background: linear-gradient(135deg,#0d2137,#1a3a5c); padding: 0 40px; display:flex; align-items:center; justify-content:space-between; height:64px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.3); }
+  nav .logo { color:#fff; font-size:20px; font-weight:700; display:flex; align-items:center; gap:10px; }
+  nav .logo .icon { width:36px; height:36px; background: #27ae60; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  nav ul { list-style:none; display:flex; gap:8px; }
+  nav ul li a { color:#a8c8e8; text-decoration:none; padding:8px 18px; border-radius:6px; transition:all .3s; font-size:15px; }
+  nav ul li a:hover, nav ul li a.active { color:#fff; background:rgba(255,255,255,.12); }
+  .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
+  .page-banner { background: linear-gradient(135deg,#1a5276,#27ae60); color:#fff; text-align:center; padding:50px 20px; border-radius:0 0 24px 24px; margin-bottom:40px; }
+  .page-banner h1 { font-size:32px; margin-bottom:8px; }
+  .page-banner p { opacity:.85; font-size:15px; }
+  .card { background:#fff; border-radius:14px; padding:32px; margin-bottom:28px; box-shadow:0 2px 16px rgba(0,0,0,.06); }
+  .card h2 { color:#1a3a5c; font-size:22px; margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid #27ae60; display:flex; align-items:center; gap:10px; }
+  .card h2 .num { background:#27ae60; color:#fff; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; flex-shrink:0; }
+  .card h3 { color:#1a5276; margin:16px 0 8px; font-size:17px; }
+  table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+  th, td { padding:10px 14px; text-align:left; border-bottom:1px solid #e8e8e8; }
+  th { background:#f0f5fa; color:#1a3a5c; font-weight:600; white-space:nowrap; }
+  tr:hover td { background:#fafbfc; }
+  .tag { display:inline-block; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:600; }
+  .tag-green { background:#d5f5e3; color:#1e8449; }
+  .tag-blue { background:#d6eaf8; color:#1a5276; }
+  .tag-orange { background:#fdebd0; color:#b9770e; }
+  ul.feature { list-style:none; padding:0; }
+  ul.feature li { padding:6px 0 6px 24px; position:relative; }
+  ul.feature li::before { content:'✓'; position:absolute; left:0; color:#27ae60; font-weight:bold; }
+  .pin-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+  .pin-item { background:#f8f9fa; border-radius:8px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+  .pin-item .pin-name { font-weight:600; color:#1a3a5c; }
+  .pin-item .pin-num { color:#888; font-size:12px; }
+  footer { background:#0d2137; color:#a8c8e8; text-align:center; padding:30px; font-size:13px; margin-top:60px; }
+  @media(max-width:768px){ nav{padding:0 16px;} nav ul li a{padding:6px 10px;font-size:13px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><div class="icon">⚗</div>PCT-100</div>
+  <ul>
+    <li><a href="index.html">首页</a></li>
+    <li><a href="manual.html" class="active">产品说明书</a></li>
+    <li><a href="guide.html">操作指南</a></li>
+    <li><a href="specs.html">技术参数</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <h1>📋 化工控制实训装置产品说明书</h1>
+  <p>PCT-100 Series · 版本 V2.0 · 2025</p>
+</div>
+
+<div class="container">
+
+  <!-- 1. 产品概述 -->
+  <div class="card">
+    <h2><span class="num">1</span>产品概述</h2>
+    <p>PCT-100 化工控制实训装置是一款基于 <strong>ESP32-C3</strong> 微控制器的智能温控教学平台。装置集成温度采集、光照检测、双路继电器控制、OLED 显示、RGB 万色状态灯及 WiFi+MQTT 远程通信功能，适用于化工实验模拟、自动化控制实训以及物联网通信教学等多种场景。</p>
+    <p style="margin-top:10px;">装置采用模块化设计，各传感器和执行器独立可更换，接线清晰明了，便于学生理解化工自动化控制系统的工作原理。</p>
+  </div>
+
+  <!-- 2. 硬件组成 -->
+  <div class="card">
+    <h2><span class="num">2</span>硬件组成</h2>
+    <h3>2.1 主控模块</h3>
+    <table>
+      <tr><th>组件</th><th>型号/规格</th><th>说明</th></tr>
+      <tr><td>主控芯片</td><td>ESP32-C3</td><td>RISC-V 160MHz，内置 WiFi/BLE</td></tr>
+      <tr><td>OLED 显示屏</td><td>SH1106 128×64</td><td>I²C 接口，SSD1306 兼容</td></tr>
+      <tr><td>RGB 状态灯</td><td>WS2812</td><td>单总线控制，全彩可编程</td></tr>
+    </table>
+
+    <h3>2.2 传感器</h3>
+    <table>
+      <tr><th>传感器</th><th>型号</th><th>接口</th><th>引脚</th></tr>
+      <tr><td>温度传感器</td><td>DS18B20</td><td>OneWire 单总线</td><td>GPIO10</td></tr>
+      <tr><td>光照传感器</td><td>模拟量 ADC</td><td>ADC 采集</td><td>GPIO1 (ADC1)</td></tr>
+    </table>
+
+    <h3>2.3 执行器</h3>
+    <table>
+      <tr><th>组件</th><th>控制引脚</th><th>功能</th><th>对应 MQTT relay</th></tr>
+      <tr><td>继电器1（灯）</td><td>GPIO6</td><td>补光灯控制</td><td><span class="tag tag-blue">relay3</span></td></tr>
+      <tr><td>继电器2（风扇）</td><td>GPIO7</td><td>散热风扇控制</td><td><span class="tag tag-orange">relay4</span></td></tr>
+    </table>
+
+    <h3>2.4 输入模块</h3>
+    <table>
+      <tr><th>组件</th><th>引脚</th><th>功能</th></tr>
+      <tr><td>KEY1（总闸）</td><td>GPIO20</td><td>系统电源开关，支持外部中断</td></tr>
+      <tr><td>KEY2（模式）</td><td>GPIO21</td><td>短按切换状态 / 长按切换自动/手动模式</td></tr>
+    </table>
+
+    <h3>2.5 通信模块</h3>
+    <table>
+      <tr><th>功能</th><th>协议/方式</th><th>说明</th></tr>
+      <tr><td>WiFi</td><td>802.11 b/g/n 2.4GHz</td><td>支持 STA 模式，自动重连</td></tr>
+      <tr><td>MQTT</td><td>MQTT 3.1.1</td><td>远程数据上报 + 指令控制</td></tr>
+      <tr><td>串口</td><td>UART 115200</td><td>本地调试 + 配网配置</td></tr>
+    </table>
+  </div>
+
+  <!-- 引脚接线图 -->
+  <div class="card">
+    <h2><span class="num">3</span>引脚接线图</h2>
+    <div style="background:#f8f9fa;border-radius:12px;padding:20px;">
+      <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="180" y="20" width="340" height="160" rx="14" fill="#1a3a5c"/>
+        <text x="350" y="50" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">ESP32-C3</text>
+        <text x="350" y="70" text-anchor="middle" fill="#a8c8e8" font-size="11">主控板</text>
+
+        <!-- 左侧引脚 -->
+        <rect x="30" y="55" width="130" height="28" rx="6" fill="#27ae60"/>
+        <text x="95" y="74" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO0 → RGB DIN</text>
+        <line x1="160" y1="69" x2="180" y2="69" stroke="#27ae60" stroke-width="2"/>
+
+        <rect x="30" y="90" width="130" height="28" rx="6" fill="#2980b9"/>
+        <text x="95" y="109" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO1 → 光照ADC</text>
+        <line x1="160" y1="104" x2="180" y2="104" stroke="#2980b9" stroke-width="2"/>
+
+        <rect x="30" y="125" width="130" height="28" rx="6" fill="#e67e22"/>
+        <text x="95" y="144" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO10 → DS18B20</text>
+        <line x1="160" y1="139" x2="180" y2="139" stroke="#e67e22" stroke-width="2"/>
+
+        <rect x="30" y="160" width="130" height="28" rx="6" fill="#c0392b"/>
+        <text x="95" y="179" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO20/21 → KEY</text>
+        <line x1="160" y1="174" x2="180" y2="174" stroke="#c0392b" stroke-width="2"/>
+
+        <!-- 右侧引脚 -->
+        <rect x="540" y="55" width="140" height="28" rx="6" fill="#8e44ad"/>
+        <text x="610" y="74" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO4/5 → OLED</text>
+        <line x1="520" y1="69" x2="540" y2="69" stroke="#8e44ad" stroke-width="2"/>
+
+        <rect x="540" y="90" width="140" height="28" rx="6" fill="#d35400"/>
+        <text x="610" y="109" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO6 → 继电器1</text>
+        <line x1="520" y1="104" x2="540" y2="104" stroke="#d35400" stroke-width="2"/>
+
+        <rect x="540" y="125" width="140" height="28" rx="6" fill="#16a085"/>
+        <text x="610" y="144" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO7 → 继电器2</text>
+        <line x1="520" y1="139" x2="540" y2="139" stroke="#16a085" stroke-width="2"/>
+
+        <rect x="540" y="160" width="140" height="28" rx="6" fill="#2c3e50"/>
+        <text x="610" y="179" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GPIO8 → LED</text>
+        <line x1="520" y1="174" x2="540" y2="174" stroke="#2c3e50" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 3. 工作原理 -->
+  <div class="card">
+    <h2><span class="num">4</span>工作原理</h2>
+    <h3>3.1 自动控制逻辑</h3>
+    <ul class="feature">
+      <li><strong>光照控制：</strong>光照 lux 值 &lt; 阈值 → 自动开启补光灯（继电器1）</li>
+      <li><strong>温度控制：</strong>当前温度 &gt; 温度阈值 → 自动开启散热风扇（继电器2）</li>
+      <li><strong>阈值可调：</strong>支持通过 MQTT 远程修改温度阈值和光照阈值</li>
+    </ul>
+    <h3>3.2 模式说明</h3>
+    <table>
+      <tr><th>模式</th><th>触发方式</th><th>行为</th></tr>
+      <tr><td><span class="tag tag-green">自动模式</span></td><td>默认 / KEY2 长按切换</td><td>根据传感器数据自动控制继电器</td></tr>
+      <tr><td><span class="tag tag-blue">手动模式</span></td><td>KEY2 长按切换</td><td>KEY2 短按循环切换：全关→风扇→灯→全开</td></tr>
+    </table>
+    <h3>4.3 总闸控制</h3>
+    <p>KEY1 控制整个系统的电源状态。释放 KEY1 时所有继电器复位、系统回到自动模式。</p>
+  </div>
+
+  <!-- 4. MQTT 通信协议 -->
+  <div class="card">
+    <h2><span class="num">4</span>MQTT 通信协议</h2>
+
+    <div style="background:#f8f9fa;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="50" width="120" height="70" rx="14" fill="#1a3a5c"/>
+        <text x="80" y="80" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">PCT-100</text>
+        <text x="80" y="103" text-anchor="middle" fill="#a8c8e8" font-size="11">设备端</text>
+        <line x1="140" y1="65" x2="225" y2="40" stroke="#27ae60" stroke-width="2" marker-end="url(#aG)"/>
+        <text x="182" y="38" text-anchor="middle" fill="#27ae60" font-size="10" font-weight="bold">publish</text>
+        <line x1="225" y1="120" x2="140" y2="100" stroke="#e67e22" stroke-width="2" marker-end="url(#aO)"/>
+        <text x="182" y="132" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="bold">subscribe</text>
+        <rect x="230" y="35" width="180" height="100" rx="14" fill="#8e44ad"/>
+        <text x="320" y="65" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">MQTT Broker</text>
+        <text x="320" y="85" text-anchor="middle" fill="#e8daef" font-size="11">Topic 路由分发</text>
+        <text x="320" y="105" text-anchor="middle" fill="#e8daef" font-size="11">QoS 0 · 3.1.1</text>
+        <line x1="410" y1="55" x2="490" y2="55" stroke="#27ae60" stroke-width="2" marker-end="url(#aG)"/>
+        <line x1="490" y1="100" x2="410" y2="100" stroke="#e67e22" stroke-width="2" marker-end="url(#aO)"/>
+        <rect x="495" y="50" width="120" height="70" rx="14" fill="#2c3e50"/>
+        <text x="555" y="80" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">MQTTX</text>
+        <text x="555" y="100" text-anchor="middle" fill="#a8c8e8" font-size="11">远程控制端</text>
+        <defs>
+          <marker id="aG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#27ae60"/></marker>
+          <marker id="aO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e67e22"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <h3>4.1 连接参数</h3>
+    <table>
+      <tr><th>参数</th><th>默认值</th><th>说明</th></tr>
+      <tr><td>服务器地址</td><td>47.98.170.180</td><td>支持通过串口命令修改</td></tr>
+      <tr><td>端口</td><td>8081</td><td>支持自定义</td></tr>
+      <tr><td>协议版本</td><td>MQTT 3.1.1</td><td>protocolVersion: 4</td></tr>
+      <tr><td>设备 ID</td><td>PCT_100_038</td><td>唯一标识，可修改并保存到 Flash</td></tr>
+    </table>
+
+    <h3>4.2 数据上报（设备 → 服务器）</h3>
+    <p>Topic: <code>chemctrl/{device_id}/status</code></p>
+    <table>
+      <tr><th>字段</th><th>类型</th><th>说明</th></tr>
+      <tr><td>temperature</td><td>float</td><td>当前温度 (℃)</td></tr>
+      <tr><td>light</td><td>int</td><td>当前光照 (lux)</td></tr>
+      <tr><td>mode</td><td>string</td><td>"auto" / "manual"</td></tr>
+      <tr><td>key1_lock</td><td>bool</td><td>总闸状态</td></tr>
+      <tr><td>relay3</td><td>bool</td><td>灯状态</td></tr>
+      <tr><td>relay4</td><td>bool</td><td>风扇状态</td></tr>
+      <tr><td>temp_threshold</td><td>float</td><td>温度阈值 (℃)</td></tr>
+      <tr><td>light_threshold</td><td>int</td><td>光照阈值 (lux)</td></tr>
+    </table>
+
+    <h3>4.3 远程控制（服务器 → 设备）</h3>
+    <p>Topic: <code>chemctrl/{device_id}/command</code></p>
+    <table>
+      <tr><th>命令</th><th>参数</th><th>说明</th></tr>
+      <tr><td>set_relay</td><td>relay: 3/4, value: true/false</td><td>控制继电器（受总闸约束）</td></tr>
+      <tr><td>set_mode</td><td>mode: "auto"/"manual"</td><td>切换工作模式</td></tr>
+      <tr><td>get_status</td><td>—</td><td>立即上报一次状态</td></tr>
+      <tr><td>set_threshold</td><td>temp: 数值, light: 数值</td><td>设置温控和光照阈值</td></tr>
+      <tr><td>reboot</td><td>—</td><td>远程重启设备</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  <p>PCT-100 化工控制实训装置 · 产品说明书</p>
+  <p style="margin-top:6px;">Copyright &copy; 2025 PCT-100 Series. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
